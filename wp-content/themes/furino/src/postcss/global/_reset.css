@@ -1,0 +1,25 @@
+figure {
+	margin: 0;
+}
+
+.entry-content {
+	& .lwptoc {
+		& a {
+			text-decoration: none;
+		}
+	}
+
+	& .lwptoc_item {
+		font-size: var(--text-small);
+	}
+}
+
+.swiper-button {
+	&::after {
+		content: none;
+	}
+}
+
+.container .site-content .content-area {
+	max-width: 100%;
+}

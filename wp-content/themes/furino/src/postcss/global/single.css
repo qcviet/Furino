@@ -1,0 +1,23 @@
+.separate-containers .site-main {
+	margin: 0 !important;
+}
+
+.separate-containers .inside-article {
+	padding: 0 !important;
+}
+
+.single-post {
+	& .single-post-container {
+		padding: 0 250px;
+
+		@media (max-width: 1280px) {
+			padding: 0 100px;
+		}
+		@media (max-width: 992px) {
+			padding: 0 50px;
+		}
+		@media (--max-sm) {
+			padding: 0 10px;
+		}
+	}
+}
