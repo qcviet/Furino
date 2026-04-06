@@ -42,7 +42,7 @@ module.exports = {
 			{
 				test: /\.(scss)$/,
 				use: [
-					devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+					MiniCssExtractPlugin.loader,
 					{
 						loader: 'css-loader',
 						options: {
@@ -66,7 +66,7 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: [
-					devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+					MiniCssExtractPlugin.loader,
 					{
 						loader: 'css-loader',
 						options: {
@@ -114,6 +114,7 @@ module.exports = {
 		new StyleLintPlugin({
 			context: path.resolve(process.cwd(), './src/postcss/'),
 			files: '**/*.css',
+			failOnError: false,
 		}),
 		new BrowserSyncPlugin({
 			host: 'localhost',

@@ -60,7 +60,7 @@ class Theme_Init
 		$variables_css_context = file_get_contents(get_theme_file_path('variables.css'));
 
 		if (!empty($variables_css_context)) {
-			wp_register_style('-variables', false);
+			wp_register_style('furino-variables', false);
 			wp_enqueue_style('furino-variables', false);
 			wp_add_inline_style('furino-variables', furino_format_css_variables($variables_css_context));
 		}
@@ -68,9 +68,16 @@ class Theme_Init
 
 	function register_frontend_assets()
 	{
-		if (!furino_is_localhost()) {
-			wp_enqueue_style('furino-bootstrap', get_stylesheet_directory_uri() . '/assets/css/bootstrap.min.css', [], $this->theme_version);
-			wp_enqueue_style('furino-frontend', get_stylesheet_directory_uri() . '/assets/css/frontend.min.css', [], $this->theme_version);
+		$bootstrap_css_file = '/assets/css/bootstrap' . $this->theme_env . '.css';
+		$frontend_css_file = '/assets/css/frontend' . $this->theme_env . '.css';
+		$bootstrap_css_path = get_theme_file_path($bootstrap_css_file);
+		$frontend_css_path = get_theme_file_path($frontend_css_file);
+
+		if (file_exists($bootstrap_css_path)) {
+			wp_enqueue_style('furino-bootstrap', get_stylesheet_directory_uri() . $bootstrap_css_file, [], $this->theme_version);
+		}
+		if (file_exists($frontend_css_path)) {
+			wp_enqueue_style('furino-frontend', get_stylesheet_directory_uri() . $frontend_css_file, [], $this->theme_version);
 		}
 
 		wp_enqueue_script('furino-bootstrap', get_stylesheet_directory_uri() . '/assets/js/bootstrap' . $this->theme_env . '.js', [], $this->theme_version);
