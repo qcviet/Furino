@@ -11,9 +11,9 @@
 $data = wp_parse_args($args, [
 	'class' => '',
 	'title' => '',
-	'sub_title' => '',
+	'subtitle' => '',
 	'description' => '',
-	'image' => '',
+	'back_ground' => '',
 	'button_text' => '',
 	'button_url' => '',
 ]);
@@ -22,16 +22,16 @@ $_class .= ' hero-section';
 $_class .= !empty($data['class']) ? esc_attr(' ' . $data['class']) : '';
 
 ?>
-<section class="<?php echo esc_attr($_class); ?> ">
+<section class="<?php echo esc_attr($_class); ?> " data-block="hero-section">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
 				<h1 class="hero-section__title text-center"><?php echo esc_html($data['title']); ?></h1>
-				<p class="hero-section__sub-title text-center"><?php echo wp_kses_post($data['sub_title']); ?></p>
+				<p class="hero-section__sub-title text-center"><?php echo wp_kses_post($data['subtitle']); ?></p>
 				<p class="hero-section__description text-center"><?php echo wp_kses_post($data['description']); ?></p>
 				<?php
 				get_template_part('templates/core-blocks/image', null, [
-					'image_id' => $data['image'],
+					'image_id' => $data['back_ground'],
 					'image_size' => 'full',
 					'lazyload' => true,
 					'image_class' => 'hero-section__image',

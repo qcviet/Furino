@@ -2,8 +2,8 @@
 /**
  * Core Block: Image
  *
- * @package eleos
- * @author codetot
+ * @package furino
+ * @author qcviet
  * @since 2.0.0
  */
 

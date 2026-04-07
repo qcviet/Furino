@@ -15,9 +15,9 @@ if (have_rows('sections')) {
            case 'hero_section':
 			$data = furino_get_flexible_content_data([
 				'title' => 'title',
-				'sub_title' => 'sub_title',
+				'subtitle' => 'subtitle',
 				'description' => 'description',
-				'image' => 'image',
+				'back_ground' => 'back_ground',
 				'button_text' => 'button_text',
 				'button_url' => 'button_url',
 			]);
