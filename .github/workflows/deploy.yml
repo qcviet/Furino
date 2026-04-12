@@ -6,3 +6,4 @@ with:
 
   local-dir: ./wp-content/themes/furino
   server-dir: /htdocs/wp-content/themes/furino/
+ 
